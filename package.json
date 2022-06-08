@@ -1,0 +1,23 @@
+{
+  "name": "semana2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "@babel/core":"^7.16.5",
+    "@babel/node":"^7.16.5",
+    "@babel/preset-env": "^7.16.5"
+  }
+}
