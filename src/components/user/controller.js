@@ -1,61 +1,33 @@
-
-
-
-const data = [];
+const data = []
 
 export const index = (req, res) =>{
-    res.json({
-        data:"test success",
+    res.status(200).json({
+        ok:true,
+        data,
     });
 };
 
-export const login = (req, res)=>{
-    const { email, password } = req.body;
-    res.json({
-        data: {
-            type: "login",
-            email,
-            password,
-        },
-    });
-};
+export const store = (req, res) =>{
+    req. body.id = data.length + 1;
+    const user = req.body
 
-export const singup = (req, res)=>{
-    const { name, lastname, email, password }  = req.body;
-    res.json({
-        data:{
-            type:"singup",
-            name,
-            lastname,
-            email,
-            password,
-        },
-    });
-};
-
-export const show = (req, res)=>{
-
-};
-
-export const reset = (req, res) =>{
-
-}
-
-export const update  = (req, res) =>{
-
-}
-
-export const dele = (req, res) =>{
+    const findUser = data.find(
+        (u) => u.name === user.name || u.email
     
+    );
+
+    if(findUser){
+        return res.status(200).json({
+            ok: false,
+            data: "User already exist",
+        });
+    };
+
+    data.push(user);
+
+
+    return res.status(201).json({
+        ok: true,
+        data,
+    })
 }
-
-const obj ={
-    name: "claudia",
-    age: "230",
-    lastname: "perez",
-};
-
-const {name, age, lastname} = obj;
-console.log(name);
-console.log(age);
-console.log(lastname);
